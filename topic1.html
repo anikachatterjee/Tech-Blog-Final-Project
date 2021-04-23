@@ -1,0 +1,208 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+        body {margin:0;font-family:Arial}
+        
+        .topnav {
+          overflow: hidden;
+          background-color: rgb(16, 5, 109);
+        }
+        
+        .topnav a {
+          float: left;
+          display: block;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+        
+        .active {
+          background-color: #7687e9;
+          color: white;
+        }
+        
+        .topnav .icon {
+          display: none;
+        }
+        
+        .dropdown {
+          float: left;
+          overflow: hidden;
+        }
+        
+        .dropdown .dropbtn {
+          font-size: 17px;    
+          border: none;
+          outline: none;
+          color: rgb(247, 247, 247);
+          padding: 14px 16px;
+          background-color: inherit;
+          font-family: inherit;
+          margin: 0;
+        }
+        
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+        
+        .dropdown-content a {
+          float: none;
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+          text-align: left;
+        }
+        
+        .topnav a:hover, .dropdown:hover .dropbtn {
+          background-color: rgb(97, 98, 141);
+          color: white;
+        }
+        
+        .dropdown-content a:hover {
+          background-color: #ddd;
+          color: rgb(64, 39, 204);
+        }
+        
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+        
+        @media screen and (max-width: 600px) {
+          .topnav a:not(:first-child), .dropdown .dropbtn {
+            display: none;
+          }
+          .topnav a.icon {
+            float: right;
+            display: block;
+          }
+        }
+        
+        @media screen and (max-width: 600px) {
+          .topnav.responsive {position: relative;}
+          .topnav.responsive .icon {
+            position: absolute;
+            right: 0;
+            top: 0;
+          }
+          .topnav.responsive a {
+            float: none;
+            display: block;
+            text-align: left;
+          }
+          .topnav.responsive .dropdown {float: none;}
+          .topnav.responsive .dropdown-content {position: relative;}
+          .topnav.responsive .dropdown .dropbtn {
+            display: block;
+            width: 100%;
+            text-align: left;
+          }
+        }
+
+        .textbox {
+          width: 80%;
+          /*overflow-wrap: break-word;*/
+          display: flex;
+          justify-content: left;
+          align-items: baseline;
+          
+        }
+        </style>
+        </head>
+
+        <div class="topnav" id="myTopnav">
+            <a href="index.html">Home</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="newsletter.html" >Join Newsletter</a>
+            <div class="dropdown">
+              <button class="dropbtn">Topics 
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="topic1.html" class="active">Topic 1</a>
+                <a href="topic2.html">Topic 2</a>
+                <a href="topic3.html">Topic 3</a>
+                <a href="topic4.html">Topic 4</a>
+              </div>
+            </div> 
+            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+          </div>
+
+ 
+
+  <body>
+    
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+        }
+    </script>
+
+    <center> 
+        <h1>Topic 1</h1> 
+
+        
+          <form>
+            <input type="text" id="title" name="title" placeholder="Title" class="textbox"><br><br>
+            <input type="text" id="author" name="author" placeholder="Author" class="textbox"><br><br>
+            <input type="text" id="article" name="article" placeholder="Article" class="textbox" style="height: 30%"><br><br>
+            <input type="submit" value="Submit" onClick="printArticle()">
+          </form>
+
+          <script>
+            function printArticle() {
+
+              var titleVal = "";
+              var authorVal = "";
+              var articleVal = "";
+
+              var titleVal = document.getElementById('title').value;
+              document.write("<h2>" + titleVal + "</h2><br>");
+              
+              var authorVal = document.getElementById('author').value;
+              document.write("<h3>" + authorVal + "</h3><br>");
+
+              var articleVal = document.getElementById('article').value;
+              document.write("<p>" + articleVal + "</p>");
+            }
+          </script>
+      </center>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBxFV2otPvQ2WfMDXYyoS6lSyXm1FijTuQ",
+            authDomain: "finalproject-b3a41.firebaseapp.com",
+            projectId: "finalproject-b3a41",
+            storageBucket: "finalproject-b3a41.appspot.com",
+            messagingSenderId: "355625240711",
+            appId: "1:355625240711:web:8d73a9c4f879fc6073d022"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        </script>
+
+  </body>
+    
+        
+</html>
