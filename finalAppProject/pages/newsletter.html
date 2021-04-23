@@ -91,9 +91,9 @@
         }
         
         @media screen and (max-width: 600px) {
-          .topnav.responsive {position: relative;}
+   .topnav.responsive {position: relative;}
           .topnav.responsive .icon {
-            position: absolute;
+                   position: absolute;
             right: 0;
             top: 0;
           }
@@ -131,7 +131,18 @@
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
           </div>
 
-<h1>Newsletter</h1>
+          <h1>Newsletter</h1>
+          <div class = "formContainer">
+            <div id = "header"></div>
+            <label for="email"> Email</label>
+            <input type = "email" placeholder = "email" id = "email"/><br><br>
+            <div class= "button"> 
+                <button type = "button" onclick="signUp()" id = "signUpButton">Sign Up</button>
+            </div>
+            <br><br>
+    </div>
+
+
 
   <body>
     
@@ -144,7 +155,36 @@
             x.className = "topnav";
           }
         }
+
+        function signUp() {
+          var email = document.getElementById("email").value;
+          console.log("Clicked signup with " + email);
+
+          auth.createUserWithEmail(email).then(() => {
+              console.log("Signed up: " + email);
+          }).catch(e => console.log(e.message));
+        }
     </script>
-        
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyBxFV2otPvQ2WfMDXYyoS6lSyXm1FijTuQ",
+        authDomain: "finalproject-b3a41.firebaseapp.com",
+        projectId: "finalproject-b3a41",
+        storageBucket: "finalproject-b3a41.appspot.com",
+        messagingSenderId: "355625240711",
+        appId: "1:355625240711:web:8d73a9c4f879fc6073d022"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    
+    </script>
   </body>
-</html>
