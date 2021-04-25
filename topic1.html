@@ -140,6 +140,33 @@
  
 
   <body>
+
+     
+
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+     <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+
+     <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+
+     <script>
+     // Your web app's Firebase configuration
+     var firebaseConfig = {
+         apiKey: "AIzaSyBxFV2otPvQ2WfMDXYyoS6lSyXm1FijTuQ",
+         authDomain: "finalproject-b3a41.firebaseapp.com",
+         projectId: "finalproject-b3a41",
+         storageBucket: "finalproject-b3a41.appspot.com",
+         messagingSenderId: "355625240711",
+         appId: "1:355625240711:web:8d73a9c4f879fc6073d022"
+     };
+     // Initialize Firebase
+     firebase.initializeApp(firebaseConfig);
+     firebase.analytics();
+     var db = firebase.firestore();
+     </script>
     
     <script>
         function myFunction() {
@@ -159,48 +186,41 @@
           <form>
             <input type="text" id="title" name="title" placeholder="Title" class="textbox"><br><br>
             <input type="text" id="author" name="author" placeholder="Author" class="textbox"><br><br>
-            <input type="text" id="article" name="article" placeholder="Article" class="textbox" style="height: 30%"><br><br>
-            <input type="submit" value="Submit" onClick="printArticle()">
+            <textarea rows="1%" cols="80%" wrap="hard" id="article" name="article" placeholder="Article" class="textbox" style="padding-bottom: 20%;"></textarea><br><br>
+            <input type="button" value="Submit" onClick="printArticle()">
           </form>
 
           <script>
+
+            function $(Id) {
+              return document.getElementById(Id);
+            }
+              
             function printArticle() {
 
-              var titleVal = "";
-              var authorVal = "";
-              var articleVal = "";
+             // var titleVal = document.getElementById('title').value;
+             // var authorVal = document.getElementById('author').value;
+             // var articleVal = document.getElementById('article').value;
 
-              var titleVal = document.getElementById('title').value;
-              document.write("<h2>" + titleVal + "</h2><br>");
-              
-              var authorVal = document.getElementById('author').value;
-              document.write("<h3>" + authorVal + "</h3><br>");
+              var data = new Object();
+	 
+	            data.title = $("title").value;
+              data.author = $("author").value;
+              data.article = $("article").value;
 
-              var articleVal = document.getElementById('article').value;
-              document.write("<p>" + articleVal + "</p>");
+              db.collection("addArticle").doc(data.title).set(data, {merge: true})
+              .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+
+             // document.write("result:" + titleVal + " " + authorVal + " " + articleVal);
+             // console.log("result:" + titleVal + " " + authorVal + " " + articleVal);
+               
             }
           </script>
       </center>
 
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
-
-        <!-- TODO: Add SDKs for Firebase products that you want to use
-            https://firebase.google.com/docs/web/setup#available-libraries -->
-
-        <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyBxFV2otPvQ2WfMDXYyoS6lSyXm1FijTuQ",
-            authDomain: "finalproject-b3a41.firebaseapp.com",
-            projectId: "finalproject-b3a41",
-            storageBucket: "finalproject-b3a41.appspot.com",
-            messagingSenderId: "355625240711",
-            appId: "1:355625240711:web:8d73a9c4f879fc6073d022"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        </script>
+       
 
   </body>
     
