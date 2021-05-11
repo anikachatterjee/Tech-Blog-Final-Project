@@ -139,7 +139,7 @@
 
  
 
-  <body>
+  <body onload="realTime()">
 
      
 
@@ -195,9 +195,34 @@
             function $(Id) {
               return document.getElementById(Id);
             }
-              
-            function printArticle() {
 
+            function realTime() {
+              db.collection("addArticle")
+              .onSnapshot((snapShot) => {
+                snapShot.forEach(processDoc);
+              });
+            }
+
+            function processDoc(doc){
+ 
+              
+              var titleContent = document.createElement("div");
+               titleContent.textContent = doc.data().title;
+               document.body.appendChild(titleContent);
+
+               var authorContent = document.createElement("div");
+               authorContent.textContent = doc.data().author;
+               document.body.appendChild(authorContent);
+
+               var articleContent = document.createElement("div");
+               articleContent.textContent = doc.data().article;
+               document.body.appendChild(articleContent);
+              
+
+            }
+              
+           function printArticle() {
+            
              // var titleVal = document.getElementById('title').value;
              // var authorVal = document.getElementById('author').value;
              // var articleVal = document.getElementById('article').value;
@@ -213,12 +238,13 @@
                     console.error("Error writing document: ", error);
                 });
 
+
              // document.write("result:" + titleVal + " " + authorVal + " " + articleVal);
              // console.log("result:" + titleVal + " " + authorVal + " " + articleVal);
                
             }
           </script>
-      </center>
+      </center> 
 
        
 
