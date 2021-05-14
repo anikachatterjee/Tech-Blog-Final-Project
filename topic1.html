@@ -192,6 +192,8 @@
 
           <script>
 
+            var reloadPage;
+
             function $(Id) {
               return document.getElementById(Id);
             }
@@ -204,20 +206,20 @@
             }
 
             function processDoc(doc){
- 
+
               
               var titleContent = document.createElement("div");
-               titleContent.textContent = doc.data().title;
-               document.body.appendChild(titleContent);
+              titleContent.textContent = doc.data().title;
+              document.body.appendChild(titleContent);
 
-               var authorContent = document.createElement("div");
-               authorContent.textContent = doc.data().author;
-               document.body.appendChild(authorContent);
+              var authorContent = document.createElement("div");
+              authorContent.textContent = doc.data().author;
+              document.body.appendChild(authorContent);
 
-               var articleContent = document.createElement("div");
-               articleContent.textContent = doc.data().article;
-               document.body.appendChild(articleContent);
-              
+              var articleContent = document.createElement("div");
+              articleContent.textContent = doc.data().article;
+              document.body.appendChild(articleContent);
+          
 
             }
               
@@ -238,10 +240,15 @@
                     console.error("Error writing document: ", error);
                 });
 
+                reloadPage = setTimeout(refreshPage,1000);
 
              // document.write("result:" + titleVal + " " + authorVal + " " + articleVal);
              // console.log("result:" + titleVal + " " + authorVal + " " + articleVal);
                
+            }
+
+            function refreshPage(){
+              location.reload();
             }
           </script>
       </center> 
