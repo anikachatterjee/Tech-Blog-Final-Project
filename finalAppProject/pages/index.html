@@ -5,8 +5,9 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="style.css">  
         <style>
-        body {margin:0;font-family:Arial}
+        body {margin:0;font-family:Arial;background-color: #5CAEFF}
         
         .topnav {
           overflow: hidden;
@@ -67,7 +68,7 @@
         }
         
         .topnav a:hover, .dropdown:hover .dropbtn {
-          background-color: rgb(97, 98, 141);
+          background-color: #7687e9;
           color: white;
         }
         
@@ -109,12 +110,30 @@
             width: 100%;
             text-align: left;
           }
+
         }
+        a:link, a:visited {
+            background-color:rgb(16, 5, 109);
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+          }
+          
+          a:hover, a:active {
+            background-color: #7687e9;
+          }
         </style>
         </head>
+         
+         
 
         <div class="topnav" id="myTopnav">
-            <a href="index.html" class="active">Home</a>
+            <a href="#" class="brand-logo center">
+              <img src="Logo.png" style=" width: 120px; margin-left: 10px"> 
+            </a>
+            <a href="index.html" class="active" >Home</a>
             <a href="aboutUs.html">About Us</a>
             <a href="newsletter.html">Join Newsletter</a>
             <div class="dropdown">
@@ -122,25 +141,27 @@
                 <i class="fa fa-caret-down"></i>
               </button>
               <div class="dropdown-content">
-                <a href="topic1.html">Topic 1</a>
-                <a href="topic2.html">Topic 2</a>
-                <a href="topic3.html">Topic 3</a>
-                <a href="topic4.html">Topic 4</a>
+                <a href="topic1.html">Artificial Intelligence</a>
+                <a href="topic2.html">Ethics</a>
+                <a href="topic3.html">Recent Advancements</a>
+                <a href="topic4.html">IT</a>
               </div>
             </div> 
+            
             <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-          </div>
+        </div>
+        
 
-<h1>Home</h1>
+<h1>Topics</h1>
 
   <body>
     <header>
       <nav>
         <ul>
-          <li><a href="topic1.html">Topic 1</a></li>
-          <li><a href="topic2.html">Topic 2</a></li>
-          <li><a href="topic3.html">Topic 3</a></li>
-          <li><a href="topic4.html">Topic 4</a></li>
+          <li><a href="topic1.html">Artificial Intelligence</a></li>
+          <li><a href="topic2.html">Ethics</a></li>
+          <li><a href="topic3.html">Recent Advancements</a></li>
+          <li><a href="topic4.html">IT</a></li>
         </ul>
       </nav>
     </header>
@@ -154,7 +175,8 @@
             x.className = "topnav";
           }
         }
-        </script>
+        
+    </script>
         
   </body>
 </html>
