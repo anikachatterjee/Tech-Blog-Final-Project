@@ -220,7 +220,7 @@
             }
 
             function realTime() {
-              db.collection("addArticle2")
+              db.collection("addArticle4")
               .onSnapshot((snapShot) => {
                 snapShot.forEach(processDoc);
               });
@@ -262,7 +262,7 @@
               data.article = $("article").value;
              
               
-              db.collection("addArticle2").doc(data.title).set(data, {merge: true})
+              db.collection("addArticle4").doc(data.title).set(data, {merge: true})
               .catch((error) => {
                     console.error("Error writing document: ", error);
                 });
